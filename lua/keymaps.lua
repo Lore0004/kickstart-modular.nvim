@@ -32,6 +32,17 @@ vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower win
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 vim.keymap.set('n', '<C-d>', '<C-d>zz', { desc = 'better down' })
 vim.keymap.set('n', '<C-u>', '<C-u>zz', { desc = 'better up' })
+vim.opt.scrolloff = 10
+vim.opt.wrap = true
+vim.keymap.set({ "n", "x" }, "j", "v:count == 0 ? 'gj' : 'j'", { desc = "Down", expr = true, silent = true })
+vim.keymap.set({ "n", "x" }, "<Down>", "v:count == 0 ? 'gj' : 'j'", { desc = "Down", expr = true, silent = true })
+vim.keymap.set({ "n", "x" }, "k", "v:count == 0 ? 'gk' : 'k'", { desc = "Up", expr = true, silent = true })
+vim.keymap.set({ "n", "x" }, "<Up>", "v:count == 0 ? 'gk' : 'k'", { desc = "Up", expr = true, silent = true })
+vim.keymap.set("n", "U", "<C-r>", { desc = "Cycle to next window" })
+vim.keymap.set("n", "<S-j>", "<Cmd>e #<CR>", { desc = "back to Alternate" })
+vim.keymap.set({ "n", "t" }, "<C-l>", "<C-w>w", { desc = "Cycle to next window" })
+vim.keymap.set("n", "gm", "m", { desc = "Marks make sense n make" })
+vim.keymap.set("n", "m", "'", { desc = "Marks make sense n quick" })
 
 -- NOTE: Some terminals have colliding keymaps or are not able to send distinct keycodes
 -- vim.keymap.set("n", "<C-S-h>", "<C-w>H", { desc = "Move window to the left" })
