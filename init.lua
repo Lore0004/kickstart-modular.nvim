@@ -86,12 +86,34 @@ P.S. You can delete this when you're done too. It's your config now! :)
 
 -- Set <space> as the leader key
 -- See `:help mapleader`
+-- vim.cmd 'source /mnt/c/Users/enzoa/AppData/Local/nvim/init.lua'
+
+-- file:///C:/Users/enzoa/AppData/Local/nvim
+
+-- vim.cmd 'source /mnt/c/Users/enzoa/AppData/Local/nvim'
+
+-- Construct the path to your Windows init file
+
+-- local windows_init_path = '/mnt/c/Users/enzoa/AppData/Local/nvim/init.lua' -- Or init.vim
+--
+-- -- Check if the file exists (optional, but good practice)
+-- local file = io.open(windows_init_path, 'r')
+-- if file then
+--   file:close()
+--   vim.cmd('source ' .. vim.escape(windows_init_path))
+--   print 'Successfully sourced Windows Neovim config!'
+-- else
+--   print('Warning: Windows Neovim config file not found at: ' .. windows_init_path)
+-- end
+
+-- In your /home/lore08/.config/nvim/init.lua
+
 --  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 -- Set to true if you have a Nerd Font installed and selected in the terminal
-vim.g.have_nerd_font = false
+vim.g.have_nerd_font = true
 
 -- [[ Setting options ]]
 require 'options'
