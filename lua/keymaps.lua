@@ -6,7 +6,7 @@
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 -- Diagnostic keymaps
-vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
+vim.keymap.set('n', '<leader>sq', vim.diagnostic.setloclist, { desc = 'Open diagnostic[S] [Q]uickfix list' })
 
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
@@ -34,15 +34,26 @@ vim.keymap.set('n', '<C-d>', '<C-d>zz', { desc = 'better down' })
 vim.keymap.set('n', '<C-u>', '<C-u>zz', { desc = 'better up' })
 vim.opt.scrolloff = 10
 vim.opt.wrap = true
-vim.keymap.set({ "n", "x" }, "j", "v:count == 0 ? 'gj' : 'j'", { desc = "Down", expr = true, silent = true })
-vim.keymap.set({ "n", "x" }, "<Down>", "v:count == 0 ? 'gj' : 'j'", { desc = "Down", expr = true, silent = true })
-vim.keymap.set({ "n", "x" }, "k", "v:count == 0 ? 'gk' : 'k'", { desc = "Up", expr = true, silent = true })
-vim.keymap.set({ "n", "x" }, "<Up>", "v:count == 0 ? 'gk' : 'k'", { desc = "Up", expr = true, silent = true })
-vim.keymap.set("n", "U", "<C-r>", { desc = "Cycle to next window" })
-vim.keymap.set("n", "<S-j>", "<Cmd>e #<CR>", { desc = "back to Alternate" })
-vim.keymap.set({ "n", "t" }, "<C-l>", "<C-w>w", { desc = "Cycle to next window" })
-vim.keymap.set("n", "gm", "m", { desc = "Marks make sense n make" })
-vim.keymap.set("n", "m", "'", { desc = "Marks make sense n quick" })
+vim.keymap.set({ 'n', 'x' }, 'j', "v:count == 0 ? 'gj' : 'j'", { desc = 'Down', expr = true, silent = true })
+vim.keymap.set({ 'n', 'x' }, '<Down>', "v:count == 0 ? 'gj' : 'j'", { desc = 'Down', expr = true, silent = true })
+vim.keymap.set({ 'n', 'x' }, 'k', "v:count == 0 ? 'gk' : 'k'", { desc = 'Up', expr = true, silent = true })
+vim.keymap.set({ 'n', 'x' }, '<Up>', "v:count == 0 ? 'gk' : 'k'", { desc = 'Up', expr = true, silent = true })
+vim.keymap.set('n', 'U', '<C-r>', { desc = 'Cycle to next window' })
+vim.keymap.set('n', '<S-j>', '<Cmd>e #<CR>', { desc = 'back to Alternate' })
+vim.keymap.set({ 'n', 't' }, '<C-l>', '<C-w>w', { desc = 'Cycle to next window' })
+vim.keymap.set('n', 'gm', 'm', { desc = 'Marks make sense n make' })
+vim.keymap.set('n', 'm', "'", { desc = 'Marks make sense n quick' })
+vim.keymap.set({ 'i', 'x', 'n', 's' }, '<C-s>', '<cmd>w<cr><esc>', { desc = 'Save File' })
+vim.keymap.set('v', '<', '<gv')
+vim.keymap.set('v', '>', '>gv')
+vim.keymap.set('n', '<leader>i', "<cmd>lua require('snipe').open_buffer_menu({max_path_width = 2})<cr>", { desc = 'sn[I]ping buffer' })
+vim.keymap.set('n', '<leader>bd', '<Cmd>bd<CR>')
+vim.keymap.set('n', '<C-Up>', '<cmd>resize +2<cr>', { desc = 'Increase Window Height' })
+vim.keymap.set('n', '<C-Down>', '<cmd>resize -2<cr>', { desc = 'Decrease Window Height' })
+vim.keymap.set('n', '<C-Left>', '<cmd>vertical resize -2<cr>', { desc = 'Decrease Window Width' })
+vim.keymap.set('n', '<C-Right>', '<cmd>vertical resize +2<cr>', { desc = 'Increase Window Width' })
+vim.keymap.set('n', '<C-n>', ':', { desc = 'Command more' })
+vim.keymap.set('n', '<leader>O', '<cmd>Oil<CR>', { desc = '[O]il' })
 
 -- NOTE: Some terminals have colliding keymaps or are not able to send distinct keycodes
 -- vim.keymap.set("n", "<C-S-h>", "<C-w>H", { desc = "Move window to the left" })
